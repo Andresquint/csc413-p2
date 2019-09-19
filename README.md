@@ -1,7 +1,7 @@
 # CSC 413 - Project Two - The Interpreter
 
-## Student Name  : Name here
+## Student Name  : Maria Luciana Seljak
 
-## Student ID    : ID here
+## Student ID    : 915736307
 
-## Student Email : Email here
+## Student Email : mseljak@mail.sfsu.edu
