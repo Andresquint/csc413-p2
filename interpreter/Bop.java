@@ -1,4 +1,5 @@
 package interpreter;
 
-public class Bop {
+public class Bop extends ByteCode{
+
 }

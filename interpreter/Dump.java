@@ -1,4 +1,4 @@
 package interpreter;
 
-public class Dump {
+public class Dump extends ByteCode{
 }
