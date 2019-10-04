@@ -1,4 +1,13 @@
 package interpreter;
 
-public class Store {
+public class Store extends ByteCode{
+    @Override
+    public void execute() {
+
+    }
+
+    @Override
+    public void init() {
+
+    }
 }
