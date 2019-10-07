@@ -1,5 +1,7 @@
 package interpreter;
 
+import interpreter.bytecode.ByteCode;
+
 import java.util.ArrayList;
 
 

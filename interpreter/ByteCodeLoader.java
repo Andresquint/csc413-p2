@@ -4,6 +4,7 @@ package interpreter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 import java.util.StringTokenizer;
 
@@ -31,15 +32,25 @@ public class ByteCodeLoader extends Object {
      */
     public Program loadCodes() {
         Program program = new Program();
-        Vector<String> codesLoaded = new Vector<>();
+        ArrayList<String> byteCodes = new ArrayList<>();
 
-        String currentCode = byteSource.readLine();
+        String currentCode = null;
+
+        try {
+            currentCode = byteSource.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         while(currentCode != null){
             StringTokenizer tokenizer = new StringTokenizer(currentCode);
+            byteCodes.clear();
 
+            while(tokenizer.hasMoreTokens()){
+                byteCodes.add(tokenizer.nextToken());
+            }
         }
-
+        program.resolveAddrs();
         return program;
     }
 }

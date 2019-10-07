@@ -1,4 +1,6 @@
-package interpreter;
+package interpreter.bytecode;
+
+import java.util.ArrayList;
 
 public class GoTo extends ByteCode {
     @Override
@@ -7,7 +9,7 @@ public class GoTo extends ByteCode {
     }
 
     @Override
-    public void init() {
+    public void init(ArrayList<String> args) {
 
     }
 }
