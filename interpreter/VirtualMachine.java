@@ -36,4 +36,11 @@ public class VirtualMachine {
         return runStack;
     }
 
+    public void setPc(int pc) {
+        this.pc = pc;
+    }
+
+    public Stack<Integer> getReturnAddrs() {
+        return returnAddrs;
+    }
 }
