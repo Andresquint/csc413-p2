@@ -11,7 +11,7 @@ public class Pop extends ByteCode {
     public void execute(VirtualMachine vm) {
         System.out.println("POP "+popNum);
         while(popNum != 0) {
-            vm.getRunStack().pop();
+            vm.pop();
             popNum--;
         }
     }

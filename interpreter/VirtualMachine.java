@@ -11,6 +11,7 @@ public class VirtualMachine {
     private Program        program;
     private int            pc;
     private boolean        isRunning;
+    //add boolean dump
 
     protected VirtualMachine(Program program) {
         this.program = program;
@@ -32,8 +33,37 @@ public class VirtualMachine {
         return isRunning = b;
     }
 
-    public RunTimeStack getRunStack(){
-        return runStack;
+    public void dump(){
+
+    }
+
+    public int peek(){
+       return runStack.peek();
+    }
+
+
+    public int push(int i){
+        return runStack.push(i);
+    }
+
+    public int pop(){
+        return runStack.pop();
+    }
+
+    public int store(int offset){
+        return runStack.store(offset);
+    }
+
+    public int load(int offset){
+        return runStack.load(offset);
+    }
+
+    public void newFrameAt(int offset){
+        runStack.newFrameAt(offset);
+    }
+
+    public void popFrame(){
+        runStack.popFrame();
     }
 
     public void setPc(int pc) {
