@@ -27,4 +27,13 @@ public class VirtualMachine {
             pc++;
         }
     }
+
+    public boolean setRunningState(boolean b){
+        return isRunning = b;
+    }
+
+    public RunTimeStack getRunStack(){
+        return runStack;
+    }
+
 }

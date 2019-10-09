@@ -44,4 +44,8 @@ public class CodeTable {
         return codeTable.get(key);
         
     }
+
+    public static String get(String token) {
+        return codeTable.get(token);
+    }
 }
