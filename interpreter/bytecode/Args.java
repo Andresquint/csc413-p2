@@ -11,7 +11,7 @@ public class Args extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println("ARGS"+numArgs);
-        vm.getRunStack().newFrameAt(numArgs);
+        vm.newFrameAt(numArgs);
     }
 
     @Override

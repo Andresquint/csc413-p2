@@ -11,9 +11,9 @@ public class Return extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println("RETURN");
-        vm.getRunStack().popFrame();
+        vm.popFrame();
         vm.setPc(vm.getReturnAddrs().pop());
-        returnValue = vm.getRunStack().peek();
+        returnValue = vm.peek();
     }
 
     @Override

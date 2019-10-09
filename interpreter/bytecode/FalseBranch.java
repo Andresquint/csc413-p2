@@ -11,7 +11,7 @@ public class FalseBranch extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println("FALSEBRANCH " + funcName);
-        if(vm.getRunStack().pop() == 0)
+        if(vm.pop() == 0)
             vm.setPc(destAddress);
     }
 

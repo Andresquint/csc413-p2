@@ -8,7 +8,7 @@ public class Write extends ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-        System.out.println(vm.getRunStack().peek());
+        System.out.println(vm.peek());
     }
 
     @Override

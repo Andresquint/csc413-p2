@@ -11,7 +11,7 @@ public class Read extends ByteCode {
         System.out.println("Input a number:");
         //Scan user's input to add it to array
         int userInput = scanner.nextInt();
-        vm.getRunStack().push(userInput);
+        vm.push(userInput);
     }
 
     @Override

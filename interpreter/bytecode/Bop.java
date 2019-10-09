@@ -11,57 +11,55 @@ public class Bop extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println("BOP "+ operator);
-        int firstOp = vm.getRunStack().pop();  //Access runtime stack. Get first operand
-        int secondOp = vm.getRunStack().pop(); //Access runtime stack. Get second operand
-        int trueStatement = 1;
-        int falseStatement = 0;
+        int firstOp = vm.pop();  //Get first operand
+        int secondOp = vm.pop(); //Get second operand
 
         //Evaluate operand. Cases: +, -, /, *, ==, ! =, <=, >, >=, <
         switch (operator){
             case "+":
-                vm.getRunStack().push(firstOp + secondOp);
+                vm.push(firstOp + secondOp);
                 break;
             case "-":
-                vm.getRunStack().push(firstOp - secondOp);
+                vm.push(firstOp - secondOp);
                 break;
             case "/":
-                vm.getRunStack().push(firstOp / secondOp);
+                vm.push(firstOp / secondOp);
                 break;
             case "*":
-                vm.getRunStack().push(firstOp * secondOp);
+                vm.push(firstOp * secondOp);
                 break;
             case "==":
                 if(firstOp == secondOp)
-                    vm.getRunStack().push(trueStatement);
-                vm.getRunStack().push(falseStatement);
+                    vm.push(1);
+                vm.push(0);
                 break;
             case "!=":
                 if(firstOp != secondOp)
-                    vm.getRunStack().push(trueStatement);
-                vm.getRunStack().push(falseStatement);
+                    vm.push(1);
+                vm.push(0);
                 break;
             case "<=":
                 if(firstOp <= secondOp)
-                    vm.getRunStack().push(trueStatement);
-                vm.getRunStack().push(falseStatement);
+                    vm.push(1);
+                vm.push(0);
                 break;
             case ">":
                 if(firstOp > secondOp)
-                    vm.getRunStack().push(trueStatement);
-                vm.getRunStack().push(falseStatement);
+                    vm.push(1);
+                vm.push(0);
                 break;
             case "<":
                 if(firstOp < secondOp)
-                    vm.getRunStack().push(trueStatement);
-                vm.getRunStack().push(falseStatement);
+                    vm.push(1);
+                vm.push(0);
                 break;
             case ">=":
                 if(firstOp >= secondOp)
-                    vm.getRunStack().push(trueStatement);
-                vm.getRunStack().push(falseStatement);
+                    vm.push(1);
+                vm.push(0);
                 break;
             default:
-                vm.getRunStack().push(0);
+                vm.push(0);
 
         }
     }

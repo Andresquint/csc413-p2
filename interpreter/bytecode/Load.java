@@ -11,7 +11,7 @@ public class Load extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println("LOAD " + id);
-        vm.getRunStack().load(offset);
+        vm.load(offset);
     }
 
     @Override

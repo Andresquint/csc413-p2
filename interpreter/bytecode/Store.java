@@ -12,8 +12,8 @@ public class Store extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println("STORE "+ id + " " + topValue);
-        topValue = vm.getRunStack().pop();
-        vm.getRunStack().store(offset);
+        topValue = vm.pop();
+        vm.store(offset);
     }
 
     @Override

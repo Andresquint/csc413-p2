@@ -12,7 +12,7 @@ public class Dump extends ByteCode {
     public void execute(VirtualMachine vm) {
         System.out.println("DUMP " + state);
         if(flag)
-            vm.getRunStack().dump();
+            vm.dump();
     }
 
     @Override

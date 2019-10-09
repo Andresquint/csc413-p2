@@ -11,7 +11,7 @@ public class Lit extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println("LIT " + num);
-        vm.getRunStack().push(num);
+        vm.push(num);
     }
 
     @Override
