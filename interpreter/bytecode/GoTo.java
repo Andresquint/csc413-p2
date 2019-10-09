@@ -4,9 +4,9 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class GoTo extends ByteCode {
-    private String funcName;
-    private int destAddress;
+public class GoTo extends JumpCode {
+     String funcName;
+     int destAddress;
 
     @Override
     public void execute(VirtualMachine vm) {

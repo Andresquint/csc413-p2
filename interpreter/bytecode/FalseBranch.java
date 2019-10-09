@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class FalseBranch extends ByteCode {
+public class FalseBranch extends JumpCode {
     private String funcName;
     private int destAddress;
 
@@ -20,15 +20,17 @@ public class FalseBranch extends ByteCode {
         funcName = args.get(0);
     }
 
-    public int getBranch() {
-        return destAddress;
+    @Override
+    public void setDestAddress(int destAddress) {
+        this.destAddress = destAddress;
     }
 
-    public String getLabel() {
+    @Override
+    public String getFuncName() {
         return funcName;
     }
 
-    public void setBranch(int destAddress) {
-        this.destAddress = destAddress;
+    public int getDestAddress(){
+        return destAddress;
     }
 }

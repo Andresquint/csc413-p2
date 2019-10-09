@@ -33,7 +33,14 @@ public class Program {
      * HINT: make note what type of data-stucture bytecodes are stored in.
      */
     public void resolveAddrs() {
-
+        /**
+         * for every bytecode(1st) in program:
+         * if bytecode intance of JumCode
+         * for every bytecode (2nd) in program
+         * if bytecode (2nd) instanceof label
+         * if bytecode(1st).args == bytecode(2nd).args;
+         * set bytecode(1st) argument to index of bytecode(2nd)
+         */
     }
 
 

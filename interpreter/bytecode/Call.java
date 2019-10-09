@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Call extends ByteCode {
+public class Call extends JumpCode {
     private String funcName;
     private int destAddress;
 
