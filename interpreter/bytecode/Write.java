@@ -8,11 +8,9 @@ public class Write extends ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-
+        System.out.println(vm.getRunStack().peek());
     }
 
     @Override
-    public void init(ArrayList<String> args) {
-
-    }
+    public void init(ArrayList<String> args) {}
 }
