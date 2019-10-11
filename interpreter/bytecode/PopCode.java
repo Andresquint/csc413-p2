@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Pop extends ByteCode {
+public class PopCode extends ByteCode {
     private int popNum;
 
     @Override

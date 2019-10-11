@@ -2,7 +2,7 @@ package interpreter.bytecode;
 import interpreter.VirtualMachine;
 import java.util.ArrayList;
 
-public class Label extends ByteCode {
+public class LabelCode extends ByteCode {
 
     private String label;
 

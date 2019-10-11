@@ -20,8 +20,8 @@ public class Program {
     }
 
     public void add(ByteCode bc){
-        if(bc instanceof Label){
-            Label label = (Label) bc;
+        if(bc instanceof LabelCode){
+            LabelCode label = (LabelCode) bc;
             bCodeLabels.put(label.getLabel(), program.size());
         }
         program.add(bc);
@@ -33,17 +33,26 @@ public class Program {
      * HINT: make note what type of data-stucture bytecodes are stored in.
      */
     public void resolveAddrs() {
-        /**
-         * for every bytecode(1st) in program:
-         * if bytecode intance of JumCode
-         * for every bytecode (2nd) in program
-         * if bytecode (2nd) instanceof label
-         * if bytecode(1st).args == bytecode(2nd).args;
-         * set bytecode(1st) argument to index of bytecode(2nd)
-         */
+        //for every bytecode(1st) in program:
+        for (ByteCode bc1 : program) {
+            //if bytecode instance of JumCode
+            if(bc1 instanceof JumpCode){
+                //for every bytecode (2nd) in program
+                for(ByteCode bc2 : program){
+                    //if bytecode (2nd) instanceof label
+                    if(bc2 instanceof LabelCode){
+                        //if bytecode(1st).args == bytecode(2nd).args;
+                        if(((JumpCode) bc1).getFuncName() == ((LabelCode) bc2).getLabel()){
+                            //set bytecode(1st) argument to index of bytecode(2nd)
+                            ((JumpCode) bc1).setDestAddress(bCodeLabels.get(bc2));
+                        }
+                    }
+
+                }
+            }
+        }
+
+
     }
-
-
-
 
 }

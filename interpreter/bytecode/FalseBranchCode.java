@@ -4,14 +4,15 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class GoTo extends JumpCode {
-     String funcName;
-     int destAddress;
+public class FalseBranchCode extends JumpCode {
+    private String funcName;
+    private int destAddress;
 
     @Override
     public void execute(VirtualMachine vm) {
-        System.out.println("GOTO " + funcName);
-        vm.setPc(destAddress);
+        System.out.println("FALSEBRANCH " + funcName);
+        if(vm.pop() == 0)
+            vm.setPc(destAddress);
     }
 
     @Override
@@ -19,15 +20,17 @@ public class GoTo extends JumpCode {
         funcName = args.get(0);
     }
 
-    public int getDestAddress() {
-        return destAddress;
-    }
-
+    @Override
     public void setDestAddress(int destAddress) {
         this.destAddress = destAddress;
     }
 
+    @Override
     public String getFuncName() {
         return funcName;
+    }
+
+    public int getDestAddress(){
+        return destAddress;
     }
 }

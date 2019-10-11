@@ -4,16 +4,14 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Store extends ByteCode {
-    private String id="";
+public class LoadCode extends ByteCode {
     private int offset;
-    private int topValue;
+    private String id;
 
     @Override
     public void execute(VirtualMachine vm) {
-        System.out.println("STORE "+ id + " " + topValue);
-        topValue = vm.pop();
-        vm.store(offset);
+        System.out.println("LOAD " + id);
+        vm.load(offset);
     }
 
     @Override

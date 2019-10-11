@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Return extends ByteCode {
+public class ReturnCode extends ByteCode {
     private String funcName;
     private int returnValue;
 

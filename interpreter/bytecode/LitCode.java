@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Lit extends ByteCode {
+public class LitCode extends ByteCode {
     private int num;
     private String labelName;
 

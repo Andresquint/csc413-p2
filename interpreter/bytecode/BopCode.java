@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Bop extends ByteCode {
+public class BopCode extends ByteCode {
 
     private String operator;
 

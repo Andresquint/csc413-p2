@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Write extends ByteCode {
+public class WriteCode extends ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {

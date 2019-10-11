@@ -3,7 +3,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Halt extends ByteCode {
+public class HaltCode extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         vm.setRunningState(false);

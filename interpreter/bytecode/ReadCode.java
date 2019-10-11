@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.*;
 
-public class Read extends ByteCode {
+public class ReadCode extends ByteCode {
     Scanner scanner = new Scanner(System.in);
     @Override
     public void execute(VirtualMachine vm) {

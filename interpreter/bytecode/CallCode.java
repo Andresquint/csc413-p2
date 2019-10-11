@@ -4,16 +4,14 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Call extends JumpCode {
+public class CallCode extends JumpCode {
     private String funcName;
     private int destAddress;
 
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println("CALL " + funcName + " " + destAddress);
-
-
-
+        vm.setPc(destAddress);
     }
 
     @Override

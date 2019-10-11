@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Dump extends ByteCode {
+public class DumpCode extends ByteCode {
     private boolean flag; //defines if DUMP is ON or not
     private String state;
 

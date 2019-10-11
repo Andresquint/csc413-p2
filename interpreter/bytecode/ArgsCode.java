@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class Args extends ByteCode {
+public class ArgsCode extends ByteCode {
 
     private int numArgs;
 

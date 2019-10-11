@@ -32,34 +32,41 @@ public class ByteCodeLoader extends Object {
      *      the newly created ByteCode instance via the init function.
      */
     public Program loadCodes() {
+        //Create new program object
         Program program = new Program();
-        ArrayList<String> byteCodes = new ArrayList<>();
+        //Set string tokenizer to null
+        StringTokenizer tokenizer = new StringTokenizer(null);
 
-        String currentCode = null;
-
+        //Handle exceptions in try/catch block. Try initialize tokenizer with the byteSource
         try {
-            currentCode = byteSource.readLine();
+            tokenizer = new StringTokenizer(byteSource.readLine());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        while(currentCode != null){
-            StringTokenizer tokenizer = new StringTokenizer(currentCode);
-            byteCodes.clear();
-            String className = CodeTable.get(tokenizer.nextToken());
-            while(tokenizer.hasMoreTokens()){
-                byteCodes.add(tokenizer.nextToken());
-            }
+        //If not null, loop over tokenizer
+        while(tokenizer != null){
+            String className = CodeTable.getClassName(tokenizer.nextToken());
+
+            //Set bytecode className and create arguments arraylist
             try {
-                ByteCode byteCode = (ByteCode)(Class.forName("interpreter.bytecode."+className).newInstance());
-                byteCode.init(byteCodes);
-                program.add(byteCode);
-                currentCode = byteSource.readLine();
-            } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | IOException e) {
+                ByteCode bc = (ByteCode)(Class.forName("interpreter.bytecode."+className).newInstance());
+                ArrayList<String> args = new ArrayList<>();
+
+                //Loop over tokenizer. While it has more tokens, add them to ArrayList
+                while(tokenizer.hasMoreTokens()){
+                    args.add(tokenizer.nextToken());
+                }
+
+                bc.init(args);
+                program.add(bc);
+            } catch (InstantiationException | ClassNotFoundException | IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
+
         program.resolveAddrs();
         return program;
     }
+
 }
