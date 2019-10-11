@@ -5,8 +5,8 @@ import interpreter.VirtualMachine;
 import java.util.ArrayList;
 
 public class GoToCode extends JumpCode {
-     String funcName;
-     int destAddress;
+     private String funcName;
+     private int destAddress;
 
     @Override
     public void execute(VirtualMachine vm) {
