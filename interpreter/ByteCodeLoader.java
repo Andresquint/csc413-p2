@@ -6,6 +6,7 @@ import interpreter.bytecode.ByteCode;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -31,7 +32,7 @@ public class ByteCodeLoader extends Object {
      *      Parse any additional arguments for the given ByteCode and send them to
      *      the newly created ByteCode instance via the init function.
      */
-    public Program loadCodes() {
+    /*public Program loadCodes() {
         //Create new program object
         Program program = new Program();
         //Set string tokenizer to null
@@ -67,6 +68,46 @@ public class ByteCodeLoader extends Object {
 
         program.resolveAddrs();
         return program;
-    }
+    }*/
+    public Program loadCodes() {
+        Program program = new Program();
+        ArrayList<String> args = new ArrayList<>();
+        String code = null;
 
+        try {
+            code = byteSource.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        while (code != null) {
+            StringTokenizer tokenizer = new StringTokenizer(code);
+            args.clear();
+
+            String codeClass = CodeTable.getClassName(tokenizer.nextToken());
+            while (tokenizer.hasMoreTokens()) {
+                args.add(tokenizer.nextToken());
+            }
+
+            ByteCode bc = null;
+            try {
+                bc = (ByteCode) Class.forName("interpreter.bytecode." + codeClass).newInstance();
+            } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            //assert handles null pointer exception
+            assert bc != null;
+            bc.init(args);
+            program.add(bc);
+
+            try {
+                code = byteSource.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        program.resolveAddrs();
+        return program;
+    }
 }
