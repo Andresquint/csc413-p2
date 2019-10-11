@@ -4,7 +4,7 @@ import interpreter.VirtualMachine;
 
 import java.util.ArrayList;
 
-public class GoToCode extends JumpCode {
+public class GotoCode extends JumpCode {
      private String funcName;
      private int destAddress;
 
