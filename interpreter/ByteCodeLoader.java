@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 
-public class ByteCodeLoader extends Object {
+public class ByteCodeLoader {
 
     private BufferedReader byteSource;
     
